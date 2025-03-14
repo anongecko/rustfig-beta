@@ -1,0 +1,425 @@
+# RustFig AI Models Configuration
+# This file configures AI models for use with RustFig's AI features.
+# You can add custom models or modify existing ones.
+
+# ========================================================================
+# MODEL PROVIDER SETTINGS
+# ========================================================================
+
+# Which provider to prioritize (openai, anthropic, ollama, other)
+preferred_provider: "ollama"
+
+# ========================================================================
+# MODEL CONFIGURATIONS
+# ========================================================================
+
+# Model definitions grouped by provider
+models:
+  # OpenAI and compatible providers
+  openai:
+    # API settings
+    api:
+      # Base URL (change for proxies or self-hosted)
+      base_url: "https://api.openai.com/v1"
+      
+      # API key (leave empty to use environment variable OPENAI_API_KEY)
+      api_key: ""
+      
+      # Organization ID (only for OpenAI organizational accounts)
+      org_id: ""
+    
+    # Available models
+    available:
+      # Latest GPT-4 version (most powerful and fastest)
+      gpt-4o:
+        display_name: "GPT-4o"
+        description: "OpenAI's most powerful and cost-effective model"
+        context_window: 128000
+        max_tokens: 4096
+        temperature: 0.2
+        capabilities:
+          - terminal_commands
+          - code_generation
+          - command_explanation
+          - error_analysis
+      
+      # Legacy GPT-4 Turbo
+      gpt-4-turbo:
+        display_name: "GPT-4 Turbo"
+        description: "OpenAI's powerful GPT-4 Turbo model"
+        context_window: 128000
+        max_tokens: 4096
+        temperature: 0.2
+        capabilities:
+          - terminal_commands
+          - code_generation
+          - command_explanation
+          - error_analysis
+      
+      # GPT-3.5 Turbo (faster, cheaper)
+      gpt-3.5-turbo:
+        display_name: "GPT-3.5 Turbo"
+        description: "Fast and efficient model for basic assistance"
+        context_window: 16385
+        max_tokens: 4096
+        temperature: 0.3
+        capabilities:
+          - terminal_commands
+          - command_explanation
+      
+      # GPT-3.5 Turbo 16k (more context)
+      gpt-3.5-turbo-16k:
+        display_name: "GPT-3.5 Turbo 16K"
+        description: "GPT-3.5 with extended context window"
+        context_window: 16385
+        max_tokens: 4096
+        temperature: 0.3
+        capabilities:
+          - terminal_commands
+          - command_explanation
+  
+  # Anthropic Claude models
+  anthropic:
+    # API settings
+    api:
+      # Base URL
+      base_url: "https://api.anthropic.com"
+      
+      # API key (leave empty to use environment variable ANTHROPIC_API_KEY)
+      api_key: ""
+      
+      # API version
+      api_version: "2023-06-01"
+    
+    # Available models
+    available:
+      # Claude 3.7 Sonnet (powerful and efficient)
+      claude-3-7-sonnet:
+        display_name: "Claude 3.7 Sonnet"
+        description: "Latest and powerful Claude model"
+        context_window: 180000
+        max_tokens: 4096
+        temperature: 0.3
+        capabilities:
+          - terminal_commands
+          - code_generation
+          - command_explanation
+          - error_analysis
+      
+      # Claude 3.5 Sonnet
+      claude-3-5-sonnet:
+        display_name: "Claude 3.5 Sonnet"
+        description: "Balanced Claude model"
+        context_window: 180000
+        max_tokens: 4096
+        temperature: 0.3
+        capabilities:
+          - terminal_commands
+          - code_generation
+          - command_explanation
+          - error_analysis
+      
+      # Claude 3.5 Haiku (fastest)
+      claude-3-5-haiku:
+        display_name: "Claude 3.5 Haiku"
+        description: "Fastest and most efficient Claude model"
+        context_window: 180000
+        max_tokens: 4096
+        temperature: 0.3
+        capabilities:
+          - terminal_commands
+          - command_explanation
+      
+      # Claude 3 Opus (most powerful)
+      claude-3-opus:
+        display_name: "Claude 3 Opus"
+        description: "Most powerful Claude model"
+        context_window: 180000 
+        max_tokens: 4096
+        temperature: 0.2
+        capabilities:
+          - terminal_commands
+          - code_generation
+          - command_explanation
+          - error_analysis
+      
+      # Claude 3 Sonnet (balanced)
+      claude-3-sonnet:
+        display_name: "Claude 3 Sonnet"
+        description: "Balanced Claude model"
+        context_window: 180000
+        max_tokens: 4096
+        temperature: 0.3
+        capabilities:
+          - terminal_commands
+          - code_generation
+          - command_explanation
+          - error_analysis
+  
+  # Mistral AI models
+  mistral:
+    # API settings
+    api:
+      # Base URL
+      base_url: "https://api.mistral.ai/v1"
+      
+      # API key (leave empty to use environment variable MISTRAL_API_KEY)
+      api_key: ""
+    
+    # Available models
+    available:
+      # Mistral Large
+      mistral-large-latest:
+        display_name: "Mistral Large"
+        description: "Mistral's most powerful model"
+        context_window: 32768
+        max_tokens: 4096
+        temperature: 0.2
+        capabilities:
+          - terminal_commands
+          - code_generation
+          - command_explanation
+          - error_analysis
+      
+      # Mistral Medium
+      mistral-medium-latest:
+        display_name: "Mistral Medium"
+        description: "Balanced performance and efficiency"
+        context_window: 32768
+        max_tokens: 4096
+        temperature: 0.3
+        capabilities:
+          - terminal_commands
+          - command_explanation
+      
+      # Mistral Small
+      mistral-small-latest:
+        display_name: "Mistral Small"
+        description: "Efficient model for basic tasks"
+        context_window: 32768
+        max_tokens: 4096
+        temperature: 0.3
+        capabilities:
+          - terminal_commands
+          - command_explanation
+  
+  # DeepSeek models
+  deepseek:
+    # API settings
+    api:
+      # Base URL (compatible with OpenAI API format)
+      base_url: "https://api.deepseek.com/v1"
+      
+      # API key (leave empty to use environment variable DEEPSEEK_API_KEY)
+      api_key: ""
+    
+    # Available models
+    available:
+      # DeepSeek Coder
+      deepseek-coder:
+        display_name: "DeepSeek Coder"
+        description: "Specialized for code and terminal commands"
+        context_window: 16384
+        max_tokens: 4096
+        temperature: 0.1
+        capabilities:
+          - terminal_commands
+          - code_generation
+          - command_explanation
+      
+      # DeepSeek R1
+      deepseek-r1:
+        display_name: "DeepSeek R1"
+        description: "Research-optimized reasoning model"
+        context_window: 32768
+        max_tokens: 4096
+        temperature: 0.2
+        capabilities:
+          - terminal_commands
+          - code_generation
+          - command_explanation
+      
+      # DeepSeek V3
+      deepseek-v3:
+        display_name: "DeepSeek V3"
+        description: "General purpose model"
+        context_window: 32768
+        max_tokens: 4096
+        temperature: 0.3
+        capabilities:
+          - terminal_commands
+          - command_explanation
+  
+  # Ollama (local models)
+  ollama:
+    # API settings
+    api:
+      # Base URL for Ollama
+      base_url: "http://localhost:11434"
+    
+    # Available models (pre-configured)
+    available:
+      # Llama3 8B
+      llama3-8b:
+        model_name: "llama3:8b"
+        display_name: "Llama 3 (8B)"
+        description: "Compact and efficient general purpose model"
+        context_window: 8192
+        max_tokens: 2048
+        temperature: 0.2
+        capabilities:
+          - terminal_commands
+          - command_explanation
+      
+      # CodeLlama 7B Instruct
+      codellama-7b-instruct:
+        model_name: "codellama:7b-instruct"
+        display_name: "CodeLlama (7B)"
+        description: "Specialized for code and terminal commands"
+        context_window: 8192
+        max_tokens: 2048
+        temperature: 0.1
+        capabilities:
+          - terminal_commands
+          - code_generation
+          - command_explanation
+      
+      # Mistral 7B Instruct
+      mistral-7b-instruct:
+        model_name: "mistral:7b-instruct"
+        display_name: "Mistral (7B)"
+        description: "Efficient instruction-following model"
+        context_window: 8192
+        max_tokens: 2048
+        temperature: 0.2
+        capabilities:
+          - terminal_commands
+          - command_explanation
+      
+      # Phi-3 Mini
+      phi3-mini:
+        model_name: "phi3:mini"
+        display_name: "Phi-3 Mini"
+        description: "Lightweight model for basic assistance"
+        context_window: 4096
+        max_tokens: 1024
+        temperature: 0.3
+        capabilities:
+          - terminal_commands
+          - command_explanation
+      
+      # Llama 3 70B
+      llama3-70b:
+        model_name: "llama3:70b"
+        display_name: "Llama 3 (70B)"
+        description: "Large powerful model (requires powerful hardware)"
+        context_window: 8192
+        max_tokens: 2048
+        temperature: 0.1
+        capabilities:
+          - terminal_commands
+          - code_generation
+          - command_explanation
+          - error_analysis
+
+# ========================================================================
+# TASK-SPECIFIC MODEL MAPPING
+# ========================================================================
+
+# Specify which models to use for specific tasks
+task_models:
+  # Command completion suggestions
+  command_completion:
+    default: "codellama-7b-instruct"  # Low latency required
+    fallback: "gpt-3.5-turbo"
+  
+  # Command explanations
+  command_explanation:
+    default: "gpt-4o"
+    fallback: "llama3-8b"
+  
+  # Code generation
+  code_generation:
+    default: "gpt-4o"
+    fallback: "codellama-7b-instruct"
+  
+  # Interactive chat
+  chat:
+    default: "claude-3-5-sonnet"
+    fallback: "gpt-4-turbo"
+  
+  # Error analysis
+  error_analysis:
+    default: "gpt-4o"
+    fallback: "mistral-large-latest"
+
+# ========================================================================
+# PROMPT TEMPLATES
+# ========================================================================
+
+# Templates for different AI tasks
+prompts:
+  # Command completion
+  command_completion: |
+    You are an expert command-line assistant.
+    Suggest a completion for the following command: {{command}}
+    Current directory: {{directory}}
+    Only respond with the command completion, nothing else.
+  
+  # Command explanation
+  command_explanation: |
+    Explain what this command does in clear, concise terms:
+    ```
+    {{command}}
+    ```
+    Include information about any flags or options used.
+  
+  # Command generation
+  command_generation: |
+    Generate a shell command that will: {{description}}
+    Target shell: {{shell}}
+    Current OS: {{os}}
+    Only respond with the command, no explanations.
+  
+  # Error analysis
+  error_analysis: |
+    Analyze this command error and suggest a fix:
+    Command: {{command}}
+    Error: {{error}}
+    OS: {{os}}
+    Shell: {{shell}}
+  
+  # Interactive chat system prompt
+  chat_system: |
+    You are RustFig AI, a helpful terminal assistant.
+    - Keep responses clear and concise
+    - Prioritize practical, working solutions
+    - Demonstrate commands with examples
+    - Focus on the user's terminal environment
+    - Current OS: {{os}}
+    - Current shell: {{shell}}
+    - Current directory: {{directory}}
+
+# ========================================================================
+# SYSTEM PROMPTS FOR DIFFERENT MODELS
+# ========================================================================
+
+# Custom system prompts for specific models
+system_prompts:
+  "gpt-4o": |
+    You are RustFig's terminal AI assistant powered by GPT-4o.
+    Provide concise, accurate answers focused on terminal usage.
+    When giving commands, be precise and include examples.
+  
+  "claude-3-sonnet": |
+    You are RustFig's terminal AI assistant powered by Claude.
+    Prioritize clarity and accuracy in your responses.
+    Focus on helping users with terminal commands and shell scripting.
+  
+  "llama3-8b": |
+    You are a helpful terminal assistant. Keep responses short and focused.
+    Provide practical commands and solutions for the user's needs.
+  
+  "codellama-7b-instruct": |
+    You are a terminal command specialist. Focus exclusively on providing
+    accurate terminal commands and explaining their usage concisely.

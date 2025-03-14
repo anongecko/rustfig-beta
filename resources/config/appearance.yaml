@@ -1,0 +1,239 @@
+# RustFig Appearance Configuration
+# This file defines the visual appearance of RustFig UI elements.
+# You can customize colors, fonts, padding and other visual aspects.
+
+# ========================================================================
+# THEMES
+# ========================================================================
+# Active theme - must be one defined in themes section or in ~/.rustfig/themes/
+active_theme: "default"
+
+# Built-in themes
+themes:
+  # Default theme optimized for most terminals
+  default:
+    name: "Default"
+    author: "RustFig Team"
+    colors:
+      background: null           # Use terminal background
+      foreground: null           # Use terminal foreground
+      primary: "#3b82f6"         # Blue
+      secondary: "#6b7280"       # Gray
+      accent: "#10b981"          # Green
+      selected_bg: "#3b82f6"     # Blue
+      selected_fg: "#ffffff"     # White
+      border: "#4b5563"          # Dark gray
+      error: "#ef4444"           # Red
+      warning: "#f59e0b"         # Orange
+      success: "#10b981"         # Green
+      ghost: "#6b7280"           # Gray
+      syntax:
+        command: "#0284c7"       # Blue
+        argument: "#ffffff"      # White
+        option: "#84cc16"        # Light green
+        path: "#a855f7"          # Purple
+        string: "#db2777"        # Pink
+        variable: "#f97316"      # Orange
+    
+  # Dark theme (high contrast)
+  dark:
+    name: "Dark"
+    author: "RustFig Team"
+    colors:
+      background: "#1e1e2e"      # Dark background
+      foreground: "#cdd6f4"      # Light foreground
+      primary: "#89b4fa"         # Blue
+      secondary: "#a6adc8"       # Gray
+      accent: "#a6e3a1"          # Green
+      selected_bg: "#89b4fa"     # Blue
+      selected_fg: "#1e1e2e"     # Dark
+      border: "#45475a"          # Border
+      error: "#f38ba8"           # Red
+      warning: "#fab387"         # Orange
+      success: "#a6e3a1"         # Green
+      ghost: "#7f849c"           # Gray
+      syntax:
+        command: "#89b4fa"       # Blue
+        argument: "#cdd6f4"      # White
+        option: "#a6e3a1"        # Green
+        path: "#cba6f7"          # Purple
+        string: "#f5c2e7"        # Pink
+        variable: "#fab387"      # Orange
+  
+  # Light theme
+  light:
+    name: "Light"
+    author: "RustFig Team"
+    colors:
+      background: "#ffffff"      # White
+      foreground: "#1f2937"      # Dark gray
+      primary: "#2563eb"         # Blue
+      secondary: "#6b7280"       # Gray
+      accent: "#059669"          # Green
+      selected_bg: "#bfdbfe"     # Light blue
+      selected_fg: "#1e40af"     # Dark blue
+      border: "#d1d5db"          # Light gray
+      error: "#dc2626"           # Red
+      warning: "#d97706"         # Orange
+      success: "#059669"         # Green
+      ghost: "#9ca3af"           # Gray
+      syntax:
+        command: "#2563eb"       # Blue
+        argument: "#1f2937"      # Dark gray
+        option: "#059669"        # Green
+        path: "#7c3aed"          # Purple
+        string: "#db2777"        # Pink
+        variable: "#ea580c"      # Orange
+  
+  # Nord theme
+  nord:
+    name: "Nord"
+    author: "Arctic Ice Studio"
+    colors:
+      background: "#2e3440"      # Polar Night 0
+      foreground: "#d8dee9"      # Snow Storm 0
+      primary: "#88c0d0"         # Frost 2
+      secondary: "#81a1c1"       # Frost 1
+      accent: "#a3be8c"          # Aurora Green
+      selected_bg: "#4c566a"     # Polar Night 3
+      selected_fg: "#eceff4"     # Snow Storm 2
+      border: "#3b4252"          # Polar Night 1
+      error: "#bf616a"           # Aurora Red
+      warning: "#d08770"         # Aurora Orange
+      success: "#a3be8c"         # Aurora Green
+      ghost: "#4c566a"           # Polar Night 3
+      syntax:
+        command: "#88c0d0"       # Frost 2
+        argument: "#d8dee9"      # Snow Storm 0
+        option: "#a3be8c"        # Aurora Green
+        path: "#b48ead"          # Aurora Purple
+        string: "#ebcb8b"        # Aurora Yellow
+        variable: "#d08770"      # Aurora Orange
+  
+  # Dracula theme
+  dracula:
+    name: "Dracula"
+    author: "Zeno Rocha"
+    colors:
+      background: "#282a36"      # Background
+      foreground: "#f8f8f2"      # Foreground
+      primary: "#bd93f9"         # Purple
+      secondary: "#6272a4"       # Comment
+      accent: "#50fa7b"          # Green
+      selected_bg: "#44475a"     # Selection
+      selected_fg: "#f8f8f2"     # Foreground
+      border: "#44475a"          # Selection
+      error: "#ff5555"           # Red
+      warning: "#ffb86c"         # Orange
+      success: "#50fa7b"         # Green
+      ghost: "#6272a4"           # Comment
+      syntax:
+        command: "#8be9fd"       # Cyan
+        argument: "#f8f8f2"      # Foreground
+        option: "#50fa7b"        # Green
+        path: "#bd93f9"          # Purple
+        string: "#f1fa8c"        # Yellow
+        variable: "#ffb86c"      # Orange
+
+# ========================================================================
+# DROPDOWN UI
+# ========================================================================
+dropdown:
+  # Border style (none, single, double, rounded, thick)
+  border_style: "rounded"
+  
+  # Border width in pixels (0-3)
+  border_width: 1
+  
+  # Corner radius for rounded corners (0-10)
+  corner_radius: 3
+  
+  # Shadow effect (none, soft, medium, hard)
+  shadow: "soft"
+  
+  # Padding inside dropdown (top, right, bottom, left)
+  padding:
+    top: 1
+    right: 2
+    bottom: 1
+    left: 2
+  
+  # Animation style (none, fade, slide)
+  animation: "fade"
+  
+  # Animation duration in milliseconds
+  animation_duration_ms: 100
+  
+  # Icons to use for different item types
+  icons:
+    command: "❯"     # Command suggestion
+    path: "📁"        # Path suggestion
+    file: "📄"        # File suggestion
+    flag: "🏳️"       # Flag/option suggestion
+    history: "⏱️"     # History suggestion
+    snippet: "📋"     # Snippet suggestion
+    git: "🔀"         # Git suggestion
+    ai: "🤖"          # AI suggestion
+  
+  # Item spacing in cells
+  item_spacing: 1
+  
+  # Group similar suggestions (true/false)
+  group_suggestions: true
+  
+  # Show scrollbar (true/false)
+  show_scrollbar: true
+
+# ========================================================================
+# GHOST TEXT
+# ========================================================================
+ghost_text:
+  # Style of ghost text (dim, italic, underscore)
+  style: "dim"
+  
+  # Animation style (none, fade, type)
+  animation: "fade"
+  
+  # Fade-in delay in milliseconds (0-500)
+  # Higher values reduce flicker during fast typing
+  fade_delay_ms: 150
+  
+  # Maximum length of ghost text (0 = unlimited)
+  max_length: 0
+
+# ========================================================================
+# FONTS & TERMINAL COMPATIBILITY
+# ========================================================================
+fonts:
+  # Enable font ligatures if terminal supports them (true/false)
+  enable_ligatures: true
+  
+  # Preferred monospace font (if available)
+  # This is a hint for the dashboard UI, not all terminals support font changes
+  preferred_font: "JetBrains Mono"
+  
+  # Font size for dashboard UI
+  font_size: 14
+  
+  # Enable font fallbacks for missing glyphs (true/false)
+  use_fallbacks: true
+
+# Terminal compatibility settings
+terminal:
+  # Color depth (detect, basic, 256, truecolor)
+  # - detect: Automatically detect
+  # - basic: 16 colors
+  # - 256: 256 colors
+  # - truecolor: 24-bit color
+  color_depth: "detect"
+  
+  # Use Unicode icons (true/false)
+  # Set to false for terminals with poor Unicode support
+  use_unicode: true
+  
+  # Use terminal italics (true/false)
+  # Some terminals don't support italics properly
+  use_italics: true
+  
+  # Support xterm-style mouse reporting (true/false)
+  use_mouse: true

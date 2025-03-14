@@ -1,0 +1,105 @@
+# RustFig Keybindings Configuration
+# This file defines all keyboard shortcuts used by RustFig.
+# Format follows a simple action: [key1, key2, ...] pattern where multiple keys can trigger the same action.
+# Supported modifiers: Ctrl, Alt, Shift
+# Special keys: Tab, Enter, Esc, Space, Backspace, Delete, Insert, Home, End, PageUp, PageDown
+# Arrow keys: Up, Down, Left, Right
+# Function keys: F1-F12
+
+# ========================================================================
+# CORE ACTIONS
+# ========================================================================
+
+# Accept ghost text (inline suggestion)
+AcceptGhost:
+  - "Tab"
+  - "Right"
+
+# Show dropdown suggestions menu
+ShowSuggestions:
+  - "Alt+Space"
+  - "Ctrl+/"  # Alternative for some terminals
+
+# Complete suggestion from dropdown
+CompleteSuggestion:
+  - "Tab"
+  - "Enter"
+
+# Navigate to next suggestion in dropdown
+NextSuggestion:
+  - "Down"
+  - "Ctrl+n"  # Emacs style
+
+# Navigate to previous suggestion in dropdown
+PrevSuggestion:
+  - "Up"
+  - "Ctrl+p"  # Emacs style
+
+# Navigate to next page of suggestions
+NextPage:
+  - "PageDown"
+  - "Ctrl+v"  # Emacs style
+
+# Navigate to previous page of suggestions
+PrevPage:
+  - "PageUp"
+  - "Alt+v"   # Emacs style
+
+# ========================================================================
+# AI FEATURES
+# ========================================================================
+
+# Explain current command (show documentation)
+ExplainCommand:
+  - "Alt+e"
+  - "F1"
+
+# Ask AI about current command or selection
+AskAI:
+  - "Alt+a"
+  - "Ctrl+Shift+a"
+
+# Start interactive AI chat
+StartChat:
+  - "Alt+c"
+  - "Ctrl+Shift+c"
+
+# ========================================================================
+# UTILITIES
+# ========================================================================
+
+# Cancel current operation
+Cancel:
+  - "Ctrl+c"
+  - "Esc"
+
+# Toggle ghost text on/off
+ToggleGhost:
+  - "Alt+g"
+  - "Ctrl+Shift+g"
+
+# Toggle suggestions dropdown on/off
+ToggleDropdown:
+  - "Alt+d"
+  - "Ctrl+Shift+d"
+
+# Open RustFig settings
+OpenSettings:
+  - "Alt+,"
+  - "Ctrl+Shift+,"
+
+# Show command history
+ShowHistory:
+  - "Alt+h"
+  - "Ctrl+r"  # Bash style
+
+# ========================================================================
+# CUSTOM COMMANDS
+# ========================================================================
+# You can define custom shell commands to run when a key is pressed
+# Format: "command": "shell command to execute"
+
+CustomCommands:
+  "Alt+t": "touch ~/.rustfig/custom_command_executed"
+  "Alt+Shift+c": "cd ~/projects"
+  # Add your own custom commands here

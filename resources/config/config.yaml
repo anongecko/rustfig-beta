@@ -1,0 +1,450 @@
+# RustFig Configuration File
+# This file contains all available configuration options with their default values.
+# Modify these settings to customize RustFig's behavior.
+
+# ========================================================================
+# GENERAL CONFIGURATION
+# ========================================================================
+general:
+  # Enable debug mode for verbose logging (true/false)
+  debug: false
+  
+  # Log file path (set to null for no logging)
+  log_file: null
+  
+  # Input timeout in milliseconds (lower = more responsive, higher = less CPU)
+  # Range: 5-100ms recommended
+  input_timeout_ms: 10
+  
+  # User data directory for storing history, patterns, etc.
+  user_data_dir: "~/.rustfig"
+  
+  # Enable ghost text (predictive text that appears as you type) (true/false)
+  enable_ghost_text: true
+  
+  # Maximum latency for UI interactions in milliseconds
+  # Any operation taking longer will be cancelled to maintain responsiveness
+  # Range: 1-50ms (recommended: 5ms for M-series Macs, 10ms for other systems)
+  max_ui_latency_ms: 5
+  
+  # Prefer local AI models (Ollama) over remote API when available (true/false)
+  prefer_local_models: true
+  
+  # Automatically start rustfig on terminal launch (true/false)
+  auto_start: true
+  
+  # Show welcome message on first run (true/false)
+  show_welcome: true
+  
+  # Enable verbose logging - useful for troubleshooting (true/false)
+  verbose_logging: false
+
+# ========================================================================
+# TERMINAL UI CONFIGURATION
+# ========================================================================
+ui:
+  # Width of dropdown suggestions
+  # Range: 30-100 (characters)
+  dropdown_width: 50
+  
+  # Maximum height of dropdown suggestions
+  # Range: 3-20 (lines)
+  dropdown_max_height: 10
+  
+  # Show icons in dropdowns (file types, commands, etc.) (true/false)
+  show_icons: true
+  
+  # Color theme (options: default, dark, light, monokai, solarized, nord, dracula)
+  # Custom themes can be added to ~/.rustfig/themes/
+  theme: "default"
+  
+  # Ghost text color in hex format
+  # Use null to use terminal default dimmed color
+  ghost_text_color: "#666666"
+  
+  # Enable syntax highlighting in command line (true/false)
+  syntax_highlighting: true
+  
+  # Show command explanations in dropdown (true/false)
+  show_explanations: true
+  
+  # Animation speed (0=off, 1=slow, 10=fast)
+  # Set to 0 to disable all animations
+  animation_speed: 5
+  
+  # Show dropdown automatically as you type (true/false)
+  # If false, dropdown will only appear when Tab is pressed
+  auto_show_dropdown: false
+  
+  # Dropdown sort order (relevance, alphabetical, most_used, recent)
+  dropdown_sort: "relevance"
+  
+  # Dropdown appearance delay in milliseconds (0 = instant)
+  # Small delay can prevent flicker during rapid typing
+  dropdown_delay_ms: 100
+  
+  # Dropdown position (default, top, bottom)
+  # default = below cursor, top = top of terminal, bottom = bottom of terminal
+  dropdown_position: "default"
+  
+  # Custom colors (all colors optional, will use theme defaults if not specified)
+  # colors:
+  #   primary: "#0366d6"       # Main accent color
+  #   secondary: "#6c757d"     # Secondary elements
+  #   accent: "#28a745"        # Highlight color
+  #   background: null         # Background (null = use terminal background)
+  #   foreground: null         # Foreground (null = use terminal foreground)
+  #   selected_bg: "#3b82f6"   # Selected item background
+  #   selected_fg: "#ffffff"   # Selected item text
+  #   border: "#4b5563"        # Border color
+  #   error: "#ef4444"         # Error messages
+  #   warning: "#f59e0b"       # Warning messages
+  #   success: "#10b981"       # Success messages
+  #   
+  #   # Syntax highlighting colors
+  #   syntax:
+  #     command: "#0284c7"     # Command color
+  #     argument: "#ffffff"    # Argument color
+  #     option: "#84cc16"      # Option/flag color
+  #     path: "#a855f7"        # Path color
+  #     string: "#db2777"      # String color
+  #     variable: "#f97316"    # Variable color
+
+# ========================================================================
+# SUGGESTION ENGINE CONFIGURATION
+# ========================================================================
+suggestions:
+  # Maximum number of suggestions to show at once
+  # Range: 3-20
+  max_suggestions: 10
+  
+  # Enable command suggestions (true/false)
+  enable_commands: true
+  
+  # Enable path completion (true/false)
+  enable_paths: true
+  
+  # Enable flag/option suggestions (true/false)
+  enable_flags: true
+  
+  # Enable AI-powered suggestions (true/false)
+  enable_ai: true
+  
+  # Directories to ignore for path completion
+  ignored_dirs:
+    - ".git"
+    - "node_modules"
+    - "target"
+    - ".idea"
+    - "venv"
+    - "__pycache__"
+  
+  # Cache lifetime in seconds
+  # Higher values reduce filesystem access but may show stale results
+  # Range: 10-300
+  cache_lifetime_secs: 60
+  
+  # Enable fuzzy matching for completions (true/false)
+  # Examples: "grp" could match "grep", "pyhton" could match "python"
+  fuzzy_matching: true
+  
+  # Maximum number of history items to search for suggestions
+  # Higher values may impact performance
+  # Range: 100-10000
+  max_history_items: 1000
+  
+  # Enable snippet suggestions (true/false)
+  # Provide quick access to saved command snippets
+  enable_snippets: true
+  
+  # Enable environment variable expansion suggestions (true/false)
+  enable_variables: true
+  
+  # Enable file content suggestions (grep, find results, etc.) (true/false)
+  # May impact performance on large files
+  enable_file_content: false
+  
+  # Enable completion while typing (true/false)
+  # Show suggestions as you type, not just on Tab
+  complete_while_typing: true
+  
+  # Minimum prefix length for suggestions
+  # Lower values show more suggestions but may be noisy
+  # Range: 1-3
+  min_prefix_length: 1
+  
+  # Advanced scoring options
+  # Controls how suggestions are ranked
+  scoring:
+    # Recency weight (0.0-1.0)
+    # Higher = more recent commands ranked higher
+    recency_weight: 0.7
+    
+    # Frequency weight (0.0-1.0)
+    # Higher = frequently used commands ranked higher
+    frequency_weight: 0.8
+    
+    # Context weight (0.0-1.0)
+    # Higher = context-aware suggestions ranked higher
+    context_weight: 0.9
+
+# ========================================================================
+# PREDICTION ENGINE CONFIGURATION
+# ========================================================================
+prediction:
+  # Enable the prediction system (true/false)
+  enable: true
+  
+  # Maximum number of predictions to generate
+  # Range: 1-10 (higher values impact performance)
+  max_predictions: 5
+  
+  # Minimum confidence threshold for showing ghost text (0.0-1.0)
+  # Higher values = fewer but more accurate predictions
+  min_ghost_confidence: 0.4
+  
+  # Enable learning from user behavior (true/false)
+  enable_learning: true
+  
+  # Maximum number of patterns to store in learning system
+  # Higher values = more memory usage
+  # Range: 1000-100000
+  max_learning_patterns: 10000
+  
+  # Enable project-aware predictions (true/false)
+  # Use project type (Rust, Node.js, etc.) for better predictions
+  enable_project_awareness: true
+  
+  # Enable git-aware predictions (true/false)
+  # Use git status, branches, etc. for better predictions
+  enable_git_awareness: true
+  
+  # Prediction cache size
+  # Higher values = more memory usage
+  # Range: 100-10000
+  cache_size: 1000
+  
+  # Prediction cache TTL in seconds
+  # Range: 60-3600
+  cache_ttl_seconds: 300
+  
+  # Maximum latency for predictions in milliseconds
+  # Predictions taking longer than this will be discarded
+  # Range: 1-20
+  max_prediction_latency_ms: 5
+  
+  # Enable context-based ranking of predictions (true/false)
+  enable_context_ranking: true
+  
+  # Prediction sources (enable/disable specific sources)
+  sources:
+    # Use command history for predictions (true/false)
+    history: true
+    
+    # Use current directory contents for predictions (true/false)
+    directory_context: true
+    
+    # Use project type for predictions (true/false)
+    project_type: true
+    
+    # Use git information for predictions (true/false)
+    git_context: true
+    
+    # Use common command patterns for predictions (true/false)
+    command_patterns: true
+    
+    # Use learned user patterns for predictions (true/false)
+    user_patterns: true
+
+# ========================================================================
+# AI INTEGRATION CONFIGURATION
+# ========================================================================
+# Note: Either ai or ollama (or both) must be configured for AI features
+
+# OpenAI-compatible API configuration
+ai:
+  # Enable AI integration (true/false)
+  enabled: false
+  
+  # API endpoint (supports many providers)
+  # - OpenAI API: "https://api.openai.com/v1"
+  # - Azure OpenAI: "https://your-resource.openai.azure.com/openai/deployments/your-deployment/completions?api-version=2022-12-01"
+  # - Self-hosted: "http://localhost:8000/v1"
+  # - Anthropic API: "https://api.anthropic.com/v1"
+  # - Together.ai: "https://api.together.xyz/v1"
+  # - Groq: "https://api.groq.com/openai/v1"
+  api_endpoint: "http://localhost:8000/v1"
+  
+  # API key (leave null for services that don't require authentication)
+  api_key: null
+  
+  # Timeout in seconds
+  # Range: 1-30
+  timeout_secs: 5
+  
+  # Cache AI responses (true/false)
+  enable_cache: true
+  
+  # Maximum cache entries
+  # Range: 100-10000
+  max_cache_entries: 1000
+  
+  # Model to use
+  # Supported models (depends on endpoint):
+  # - OpenAI: "gpt-4o", "gpt-4-turbo", "gpt-4", "gpt-3.5-turbo" "gpt-3.5-turbo-0125"
+  # - Azure: depends on your deployment
+  # - Anthropic: "claude-3-opus-20240229", "claude-3-sonnet-20240229", "claude-3-haiku-20240307", "claude-3.5-sonnet", "claude-3.7-sonnet"
+  # - Mistral: "mistral-tiny", "mistral-small", "mistral-medium", "mistral-large-latest"
+  # - Deepseek: "deepseek-coder", "deepseek-v3", "deepseek-r1"
+  # - OLlama-compatible: Depends on installed models
+  model: "gpt-3.5-turbo"
+  
+  # Temperature for API calls (0.0-1.0)
+  # Lower values = more deterministic outputs
+  temperature: 0.2
+  
+  # Max tokens for API responses
+  # Range: 50-4096
+  max_tokens: 100
+
+# Ollama (Local LLM) Configuration
+ollama:
+  # Enable Ollama integration (true/false)
+  enabled: true
+  
+  # API URL for Ollama
+  api_url: "http://localhost:11434"
+  
+  # Model to use
+  # Default models (install with 'ollama pull <model>'):
+  # - "llama3:8b" - Most compact balanced model for suggestions
+  # - "codellama:7b-instruct" - Best for code completion
+  # - "llama3:70b" - Most powerful but requires more resources
+  # - "mistral:7b-instruct" - Good balance of size and quality
+  # - "phi3:mini" - Very lightweight model
+  model: "codellama:7b-instruct"
+  
+  # Timeout in seconds
+  # Range: 1-10
+  timeout_secs: 3
+  
+  # Cache responses (true/false)
+  enable_cache: true
+  
+  # Maximum cache entries
+  # Range: 100-1000
+  max_cache_entries: 500
+  
+  # Advanced model parameters
+  parameters:
+    # Temperature (0.0-1.0)
+    # Lower = more deterministic
+    temperature: 0.1
+    
+    # Top-p sampling (0.0-1.0)
+    top_p: 0.9
+    
+    # Maximum tokens to generate
+    # Range: 50-2048
+    max_tokens: 100
+    
+    # System prompt for context
+    system_prompt: "You are a helpful terminal assistant that provides accurate, concise shell command suggestions."
+
+# ========================================================================
+# SHELL-SPECIFIC CONFIGURATIONS
+# ========================================================================
+shells:
+  # Bash configuration
+  bash:
+    command: "bash"
+    init_file: "~/.bashrc"
+    history_file: "~/.bash_history"
+    enable_keybindings: true
+    load_aliases: true
+  
+  # Zsh configuration
+  zsh:
+    command: "zsh"
+    init_file: "~/.zshrc"
+    history_file: "~/.zsh_history"
+    enable_keybindings: true
+    load_aliases: true
+  
+  # Fish configuration
+  fish:
+    command: "fish"
+    init_file: "~/.config/fish/config.fish"
+    history_file: "~/.local/share/fish/fish_history"
+    enable_keybindings: true
+    load_aliases: true
+
+# ========================================================================
+# SSH CONFIGURATION
+# ========================================================================
+ssh:
+  # Enable SSH-specific optimizations (true/false)
+  enable_optimizations: true
+  
+  # Maximum bandwidth usage (KB/s)
+  # Lower values reduce network impact
+  # Range: 10-1000
+  max_bandwidth_kb: 50
+  
+  # Enable command caching for SSH sessions (true/false)
+  # Reduces network traffic
+  enable_command_caching: true
+  
+  # Disable expensive features in SSH sessions (true/false)
+  # Improves performance over high-latency connections
+  disable_expensive_features: true
+  
+  # Reduce animation in SSH sessions (true/false)
+  reduce_animations: true
+
+# ========================================================================
+# TELEMETRY CONFIGURATION (OPT-IN)
+# ========================================================================
+telemetry:
+  # Enable telemetry (true/false)
+  # Helps improve RustFig by sending anonymous usage data
+  enabled: false
+  
+  # Telemetry data directory (null = use default)
+  data_dir: null
+  
+  # Telemetry upload URL
+  upload_url: "https://api.rustfig.dev/telemetry"
+  
+  # Feedback submission URL
+  feedback_url: "https://api.rustfig.dev/feedback"
+
+# ========================================================================
+# PERFORMANCE TUNING
+# ========================================================================
+performance:
+  # Number of worker threads (0 = auto-detect based on CPU cores)
+  worker_threads: 0
+  
+  # Maximum memory usage in MB (0 = unlimited)
+  max_memory_mb: 0
+  
+  # Enable background cache warming (true/false)
+  # Preloads common commands for faster response
+  enable_cache_warming: true
+  
+  # Enable parallel suggestion generation (true/false)
+  parallel_suggestions: true
+  
+  # I/O optimizations
+  optimizations:
+    # Use memory mapped files (true/false)
+    mmap_files: true
+    
+    # Buffer size for file operations
+    # Range: 1024-65536
+    file_buffer_size: 8192
+    
+    # Compress cached data (true/false)
+    # Reduces memory usage but adds CPU overhead
+    compress_cache: true

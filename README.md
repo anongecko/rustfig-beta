@@ -1,16 +1,4 @@
-# RustFig: Ultra-Fast Terminal Assistant
-
-<p align="center">
-  <img src="assets/rustfig-logo.png" alt="RustFig Logo" width="180"/>
-</p>
-
-<p align="center">
-  <a href="https://github.com/rustfig/rustfig/releases"><img src="https://img.shields.io/github/v/release/rustfig/rustfig" alt="Latest Release"></a>
-  <a href="https://github.com/rustfig/rustfig/blob/master/LICENSE"><img src="https://img.shields.io/github/license/rustfig/rustfig" alt="License"></a>
-  <a href="https://github.com/rustfig/rustfig/actions"><img src="https://github.com/rustfig/rustfig/workflows/CI/badge.svg" alt="Build Status"></a>
-  <a href="https://crates.io/crates/rustfig"><img src="https://img.shields.io/crates/v/rustfig.svg" alt="Crates.io"></a>
-  <a href="https://docs.rs/rustfig"><img src="https://docs.rs/rustfig/badge.svg" alt="Documentation"></a>
-</p>
+# RustFig: Ultra-Fast Terminal Assistant (Fig meets Amazon Q)
 
 **RustFig** is a blazingly fast, context-aware terminal assistant built entirely in Rust. It brings modern IDE-like features to your terminal with **zero latency** and **complete privacy**. Think of Amazon Q or Warp terminal suggestions, but open-source, lightweight, and running entirely on your machine.
 
